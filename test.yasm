@@ -1,7 +1,0 @@
-# This is a comment
-.quad:
-    0x000
-init:
-    irmovq $133,    %r10 # Hello
-    iraddq $2,      %r10
-

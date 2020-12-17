@@ -1,0 +1,43 @@
+# Execution begins at address 0
+    .pos 0
+    irmovq stack, %rsp      # Set up stack pointer
+    call main       # Execute main program
+    halt            # Terminate program
+
+# Array of 4 elements
+    .align 8
+array:
+    .quad 0x000004
+    .quad 0x000005
+    .quad 0x000006
+    .quad 0x000007
+    .quad 0x000008
+
+cuadrado:
+    .quad 0x000000
+    .quad 0x000000
+    .quad 0x000000
+    .quad 0x000000
+    .quad 0x000000
+
+main:
+    irmovq array,%rdi     # Obtengo array
+    irmovq $8, %r8        # Offset
+    irmovq $5, %r9        # Itera 5 veces
+    irmovq cuadrado, %r11 # Referencia a cuadrado
+loop:
+    xorq   %rax, %rax     # Comienza en 0
+    mrmovq (%rdi), %r10   # Obtiene array[1]
+    rrmovq %r10, %rsi
+mul:
+    addq   %r10, %rax
+    isubq  $1,   %rsi
+    jne     mul
+
+    rmmovq %rax, (%r11)    # Mueve el resultado a la memoria
+    addq   %r8, %rdi       # Incrementa
+    addq   %r8, %r11       # Incrementa
+    isubq  $1, %r9         # Itera hasta llegar a 0
+    jne    loop
+    ret
+
