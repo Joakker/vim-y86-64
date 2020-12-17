@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.yasm setf y86asm
+au BufRead,BufNewFile *.ys  setf y86asm

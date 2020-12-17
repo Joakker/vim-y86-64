@@ -9,20 +9,45 @@
 ==============================================================================
 CONTENTS                                                       *y86asm-contents*
 
-    X. Usage ............................... |y86asm-usage|
-    X. License ............................. |y86asm-license|
+    1. Usage ............................... |y86asm-usage|
+        1.1 File Extensions ................ |y86asm-fileext|
+    2. Installation ........................ |y86asm-installation|
+    3. Configuration ....................... |y86asm-config|
+    4. License ............................. |y86asm-license|
 
 ==============================================================================
-X. Usage                                                          *y86asm-usage*
+1. Usage                                                          *y86asm-usage*
 
 Y86-64 is a fictional computer architecture designed to teach beginner
 programmers about low level assembly. This vim plugin is designed to give
 syntax highlighting for such files.
 
-==============================================================================
+1.1 File Extensions                                             *y86asm-fileext*
+
+By default, the plugin will work on files with the `.ys` extension. In the
+future, I will add a way to define custom extensions.
 
 ==============================================================================
-X. License                                                      *y86asm-license*
+2. Installation                                            *y86asm-installation*
+
+* Vim Plug (https://github.com/junegunn/vim-plug) >
+    Plug 'Joakker/vim-y86-64'
+<
+    Don't forget to `:PlugInstall`
+
+* NeoBundle (https://github.com/Shougo/neobundle.vim) >
+    NeoBundle 'Joakker/vim-y86-64'
+<
+* Vundle (https://github.com/gmarik/vundle) >
+    Plugin 'Joakker/vim-y86-64'
+<
+==============================================================================
+3. Configuration                                                 *y86asm-config*
+
+To be done
+
+==============================================================================
+4. License                                                      *y86asm-license*
 
 y86asm is licensed under the MIT License.
 
