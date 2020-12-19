@@ -25,20 +25,25 @@ highlight link y86asmRegister Special
 
 " Instruction blocks are always indented, so we can say that the instruction
 " itself starts with whitespace
-syntax match y86asmInstruction /\v\s+(i|r|m)(r|m)movq?/
-syntax match y86asmInstruction /\v\s+i?addq?/
-syntax match y86asmInstruction /\v\si?andq?/
-syntax match y86asmInstruction /\v\si?xorq?/
-syntax match y86asmInstruction /\v\si?subq?/
-syntax match y86asmInstruction /\v\sj(mp|ne|eq)/
-syntax keyword y86asmInstruction ret call halt
+syntax match y86asmInstruction /\v\s+(i|r|m)(r|m)movq?/ contained
+syntax match y86asmInstruction /\v\s+i?addq?/ contained
+syntax match y86asmInstruction /\v\s+i?andq?/ contained
+syntax match y86asmInstruction /\v\s+i?xorq?/ contained
+syntax match y86asmInstruction /\v\s+i?subq?/ contained
+syntax keyword y86asmInstruction ret halt contained
 highlight link y86asmInstruction Operator
+
+syntax keyword y86asmCall call contained
+highlight link y86asmCall Function
+
+syntax match y86asmJump /\v\s+j(mp|ne|eq)/ contained
+highlight link y86asmJump Repeat
 
 syntax match y86asmDirective /\v\.(pos|quad|align)/ contained
 highlight link y86asmDirective PreProc
 
-syntax region y86asmBlock start=/^/ end=/$/
-        \ contains=y86asmInstruction,y86asmLabel,y86asmComment,y86asmRegister,y86asmDirective,y86asmNumber
+syntax region y86asmBlock start=/^\s\+/ end=/$/
+        \ contains=y86asmInstruction,y86asmLabel,y86asmComment,y86asmRegister,y86asmDirective,y86asmNumber,y86asmCall,y86asmJump
 
 syntax region y86asmComment start=/#/ end=/$/ keepend
 highlight link y86asmComment Comment
