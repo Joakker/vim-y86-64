@@ -63,7 +63,10 @@ highlight link y86asmReference Delimiter
 syntax region y86asmBlock start=/^\s\+/ end=/$/
         \ contains=y86asmLabel,y86asmComment,y86asmRegister,y86asmDirective,y86asmNumber,y86asmCall,y86asmJump,y86asmInstructionError,y86asmInstruction,y86asmReference
 
-syntax region y86asmComment start=/#/ end=/$/ keepend
+syntax keyword y86asmTodo TODO FIXME XXX contained
+highlight link y86asmTodo Todo
+
+syntax region y86asmComment start=/#/ end=/$/ keepend contains=y86asmTodo
 highlight link y86asmComment Comment
 
 let b:current_syntax = 'y86asm'
