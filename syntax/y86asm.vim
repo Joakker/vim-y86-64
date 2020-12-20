@@ -8,11 +8,11 @@ syntax match y86asmNumber /\$[0-9]\+/ contained
 syntax match y86asmNumber /0x[0-9a-fA-F]\+/ contained
 highlight link y86asmNumber Constant
 
-syntax match y86asmPunctuation /:/
-highlight link y86asmPunctuation Operator
+syntax match y86asmColon /:/
+highlight link y86asmColon Operator
 
 syntax match y86asmLabel /[a-zA-Z]\+/ contained
-syntax match y86asmLabel /^[a-zA-Z]\+:/ contains=y86asmPunctuation
+syntax match y86asmLabel /^[a-zA-Z]\+:/ contains=y86asmColon
 highlight link y86asmLabel Label
 
 " This would highlight %r0 through %r19, but only %r8 through %r14 actually
