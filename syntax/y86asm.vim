@@ -42,6 +42,14 @@ highlight link y86asmCall Function
 syntax match y86asmJump /\v\s+j(mp|ne|eq)/ contained
 highlight link y86asmJump Repeat
 
+syntax match y86asmInstructionError /\v^(i|r|m)(r|m)movq?/
+syntax match y86asmInstructionError /\v^i?addq?/
+syntax match y86asmInstructionError /\v^i?andq?/
+syntax match y86asmInstructionError /\v^i?xorq?/
+syntax match y86asmInstructionError /\v^i?subq?/
+syntax match y86asmInstructionError /\v^(ret|halt)/
+highlight link y86asmInstructionError Error
+
 syntax match y86asmDirective /\v\.(pos|quad|align)/ contained
 highlight link y86asmDirective PreProc
 
