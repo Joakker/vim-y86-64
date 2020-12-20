@@ -54,7 +54,7 @@ syntax match y86asmInstructionError /\v^call/
 syntax match y86asmInstructionError /\v^j(mp|ne|eq)/
 highlight link y86asmInstructionError Error
 
-syntax match y86asmDirective /\v\.(pos|quad|align)/ contained
+syntax match y86asmDirective /\v\.(pos|quad|align|long)/ contained nextgroup=y86asmNumber
 highlight link y86asmDirective PreProc
 
 syntax region y86asmBlock start=/^\s\+/ end=/$/
