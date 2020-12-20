@@ -57,8 +57,11 @@ highlight link y86asmInstructionError Error
 syntax match y86asmDirective /\v\.(pos|quad|align|long)/ contained nextgroup=y86asmNumber
 highlight link y86asmDirective PreProc
 
+syntax region y86asmReference start=/(/ end=/)/ contains=y86asmRegister
+highlight link y86asmReference Delimiter
+
 syntax region y86asmBlock start=/^\s\+/ end=/$/
-        \ contains=y86asmLabel,y86asmComment,y86asmRegister,y86asmDirective,y86asmNumber,y86asmCall,y86asmJump,y86asmInstructionError,y86asmInstruction
+        \ contains=y86asmLabel,y86asmComment,y86asmRegister,y86asmDirective,y86asmNumber,y86asmCall,y86asmJump,y86asmInstructionError,y86asmInstruction,y86asmReference
 
 syntax region y86asmComment start=/#/ end=/$/ keepend
 highlight link y86asmComment Comment
