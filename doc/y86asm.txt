@@ -44,7 +44,7 @@ future, I will add a way to define custom extensions.
 ==============================================================================
 3. Configuration                                                 *y86asm-config*
 
-To be done
+TODO: Make plugin configurable.
 
 ==============================================================================
 4. License                                                      *y86asm-license*
