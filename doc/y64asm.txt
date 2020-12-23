@@ -1,4 +1,4 @@
-*y86asm.txt* functionality for y86-64 assembly files
+*y64asm.txt* functionality for y86-64 assembly files
                         ___   __          __   _  _   ~
                  _   _ ( _ ) / /_        / /_ | || |  ~
                 | | | |/ _ \| '_ \ _____| '_ \| || |_ ~
@@ -7,28 +7,28 @@
                  |___/                                ~
 
 ==============================================================================
-CONTENTS                                                       *y86asm-contents*
+CONTENTS                                                       *y64asm-contents*
 
-    1. Usage ............................... |y86asm-usage|
-        1.1 File Extensions ................ |y86asm-fileext|
-    2. Installation ........................ |y86asm-installation|
-    3. Configuration ....................... |y86asm-config|
-    4. License ............................. |y86asm-license|
+    1. Usage ............................... |y64asm-usage|
+        1.1 File Extensions ................ |y64asm-fileext|
+    2. Installation ........................ |y64asm-installation|
+    3. Configuration ....................... |y64asm-config|
+    4. License ............................. |y64asm-license|
 
 ==============================================================================
-1. Usage                                                          *y86asm-usage*
+1. Usage                                                          *y64asm-usage*
 
 Y86-64 is a fictional computer architecture designed to teach beginner
 programmers about low level assembly. This vim plugin is designed to give
 syntax highlighting for such files.
 
-1.1 File Extensions                                             *y86asm-fileext*
+1.1 File Extensions                                             *y64asm-fileext*
 
 By default, the plugin will work on files with the `.ys` extension. In the
 future, I will add a way to define custom extensions.
 
 ==============================================================================
-2. Installation                                            *y86asm-installation*
+2. Installation                                            *y64asm-installation*
 
 * Vim Plug (https://github.com/junegunn/vim-plug) >
     Plug 'Joakker/vim-y86-64'
@@ -42,23 +42,23 @@ future, I will add a way to define custom extensions.
     Plugin 'Joakker/vim-y86-64'
 <
 ==============================================================================
-3. Configuration                                                 *y86asm-config*
+3. Configuration                                                 *y64asm-config*
 
 File Extensions                                                |g:y64_file_exts|
     default: `['ys']`
 
-A list of file extensions that are to be treated as y86asm assembly files
+A list of file extensions that are to be treated as y64asm assembly files
 
 For example, adding this to your $MYVIMRC: >
     let g:y64_file_exts = [ 'ys', 'Y', 'y64' ]
 <
-Will set the filetype to `y86asm` for any file ending in those extensions.
+Will set the filetype to `y64asm` for any file ending in those extensions.
 
 
 ==============================================================================
-4. License                                                      *y86asm-license*
+4. License                                                      *y64asm-license*
 
-y86asm is licensed under the MIT License.
+vim-y86-64 is licensed under the MIT License.
 
 ==============================================================================
 
