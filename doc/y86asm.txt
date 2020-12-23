@@ -44,7 +44,16 @@ future, I will add a way to define custom extensions.
 ==============================================================================
 3. Configuration                                                 *y86asm-config*
 
-TODO: Make plugin configurable.
+File Extensions                                                |g:y64_file_exts|
+    default: `['ys']`
+
+A list of file extensions that are to be treated as y86asm assembly files
+
+For example, adding this to your $MYVIMRC: >
+    let g:y64_file_exts = [ 'ys', 'Y', 'y64' ]
+<
+Will set the filetype to `y86asm` for any file ending in those extensions.
+
 
 ==============================================================================
 4. License                                                      *y86asm-license*
