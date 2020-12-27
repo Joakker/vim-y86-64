@@ -5,7 +5,7 @@ endif
 " Decimal numbers are of the form $100, while hexadecimal is of the form 0x64.
 " Normal, decimal notation is also supported
 syntax match y64asmNumber /\$\?[0-9]\+/ contained
-syntax match y64asmNumber /0x[0-9a-fA-F]\+/ contained
+syntax match y64asmNumber /0x\x\+/ contained
 highlight link y64asmNumber Constant
 
 syntax match y64asmColon /:/
@@ -19,17 +19,19 @@ syntax match y64asmLabel /[a-zA-Z]\+/ contained
 syntax match y64asmLabel /^[a-zA-Z]\+:/ contains=y64asmColon
 highlight link y64asmLabel Label
 
-" This would highlight %r0 through %r19, but only %r8 through %r14 actually
-" exist. Still, it's more concise than to define them one by one
-syntax match y64asmRegister /%r1\?[0-9]/
-syntax match y64asmRegister /\v\%r(s|d)i/
-syntax match y64asmRegister /\v\%r(a|b|c|d)x/
-syntax match y64asmRegister /\v\%r(s|b)p/
+syntax match y64asmRegisterError /%\w\+/
+highlight link y64asmRegisterError Error
+
+syntax match y64asmRegister /%r1[0-4]/ contained
+syntax match y64asmRegister /%r[8-9]/ contained
+syntax match y64asmRegister /\v\%r(s|d)i/ contained
+syntax match y64asmRegister /\v\%r(a|b|c|d)x/ contained
+syntax match y64asmRegister /\v\%r(s|b)p/ contained
 highlight link y64asmRegister Special
 
 " Catch any indented word that doesn't correspond to a preprocessor or
 " instruction statement as an error
-syntax match y64asmInstructionError /^\s\+\w\+/ contained
+syntax match y64asmInstructionError /^\s\+\zs\w\+/ contained
 highlight link y64asmInstructionError Error
 
 " Instruction blocks are always indented, so we can say that the instruction
@@ -71,9 +73,8 @@ highlight link y64asmReference Delimiter
 " This is the meat and potatos of the syntax definition. It contains everything
 " that can or is indented.
 syntax region y64asmBlock start=/^\s\+/ end=/$/
-        \ contains=y64asmLabel,y64asmComment,y64asmRegister,y64asmDirective,y64asmNumber,y64asmCall,y64asmJump,y64asmInstructionError,y64asmInstruction,y64asmReference
+        \ contains=y64asmLabel,y64asmComment,y64asmRegister,y64asmDirective,y64asmNumber,y64asmCall,y64asmJump,y64asmInstructionError,y64asmInstruction,y64asmReference,y64asmRegisterError
 
-" TODO directives are only contained in comments
 syntax keyword y64asmTodo TODO FIXME XXX contained
 highlight link y64asmTodo Todo
 
