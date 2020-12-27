@@ -6,6 +6,10 @@
                  \__, |\___/ \___/       \___/   |_|  ~
                  |___/                                ~
 
+Author:  Joakker (Joaquín Andrés León Ulloa)
+License: MIT
+URL: https://github.com/Joakker/vim-y86-64
+
 ==============================================================================
 CONTENTS                                                       *y64asm-contents*
 
@@ -24,8 +28,8 @@ syntax highlighting for such files.
 
 1.1 File Extensions                                             *y64asm-fileext*
 
-By default, the plugin will work on files with the `.ys` extension. In the
-future, I will add a way to define custom extensions.
+By default, the plugin will work on files with the `.ys` extension. see
+|g:y64_file_exts| to add different extensions.
 
 ==============================================================================
 2. Installation                                            *y64asm-installation*
@@ -44,7 +48,7 @@ future, I will add a way to define custom extensions.
 ==============================================================================
 3. Configuration                                                 *y64asm-config*
 
-File Extensions                                                |g:y64_file_exts|
+File Extensions                                                *g:y64_file_exts*
     default: `['ys']`
 
 A list of file extensions that are to be treated as y64asm assembly files
@@ -52,7 +56,7 @@ A list of file extensions that are to be treated as y64asm assembly files
 For example, adding this to your $MYVIMRC: >
     let g:y64_file_exts = [ 'ys', 'Y', 'y64' ]
 <
-Will set the filetype to `y64asm` for any file ending in those extensions.
+Will tell the plugin to recognize `foo.ys`, `foo.Y`, `foo.y64` as y64asm files.
 
 
 ==============================================================================
