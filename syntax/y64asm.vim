@@ -72,8 +72,11 @@ highlight link y64asmReference Delimiter
 
 " This is the meat and potatos of the syntax definition. It contains everything
 " that can or is indented.
-syntax region y64asmBlock start=/^\s\+/ end=/$/
-        \ contains=y64asmLabel,y64asmComment,y64asmRegister,y64asmDirective,y64asmNumber,y64asmCall,y64asmJump,y64asmInstructionError,y64asmInstruction,y64asmReference,y64asmRegisterError
+syntax region y64asmBlock start=/^\s\+/ end=/$/ contains=y64asmLabel,
+        \ y64asmComment,y64asmRegister,
+        \ y64asmDirective,y64asmNumber,y64asmCall,y64asmJump,
+        \ y64asmInstructionError,y64asmInstruction,y64asmReference,
+        \ y64asmRegisterError
 
 syntax keyword y64asmTodo TODO FIXME XXX contained
 highlight link y64asmTodo Todo
